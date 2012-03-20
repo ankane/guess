@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["andrew@getformidable.com"]
   gem.description   = %q{*Statistically* determine a person's gender based on his / her name.}
   gem.summary       = %q{*Statistically* determine a person's gender based on his / her name.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/ankane/guess"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
