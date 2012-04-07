@@ -23,4 +23,11 @@ describe Guess do
     it { subject[:confidence].should == nil }
   end
 
+  context "nil name" do
+    subject { Guess.gender(nil) }
+
+    it { subject[:gender].should == "unknown" }
+    it { subject[:confidence].should == nil }
+  end
+
 end
