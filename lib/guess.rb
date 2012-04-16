@@ -4,7 +4,11 @@ module Guess
   class << self
 
     def gender(name)
-      first_name = name.to_s.split.first.to_s.downcase
+      name = name.to_s.downcase
+      index = name.index(",")
+      first_name = index ? name[(index+1)..-1] : name
+      first_name = first_name.split.first
+
       freq_male = FREQ_MALE[first_name]
       freq_female = FREQ_FEMALE[first_name]
       p_male = freq_male / (freq_male + freq_female)

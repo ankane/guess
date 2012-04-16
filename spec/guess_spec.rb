@@ -30,4 +30,11 @@ describe Guess do
     it { subject[:confidence].should == nil }
   end
 
+  context "last name, first name" do
+    subject { Guess.gender("Draper, Don") }
+
+    it { subject[:gender].should == "male" }
+    it { subject[:confidence].should be_within(0.1).of(0.99) }
+  end
+
 end
