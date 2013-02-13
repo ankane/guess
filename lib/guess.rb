@@ -3,6 +3,32 @@ require "guess/version"
 module Guess
   class << self
 
+    def gendered_form_of(form, name)
+      g = gender(name)[:gender].to_sym
+      case form
+      when :theirs # "the gem is his/hers/theirs"
+        case g
+        when :male then "his"
+        when :female then "hers"
+        when :unknown then "theirs"
+        end
+      when :their # "it's his/her/their gem"
+        case g
+        when :male then "his"
+        when :female then "her"
+        when :unknown then "their"
+        end
+      when :they # "he/she/they are writing this gem"
+        case g
+        when :male then "he"
+        when :female then "she"
+        when :unknown then "they"
+        end
+      else
+        form.to_s # return the given word if it doesn't match any of the available forms
+      end
+    end
+
     def gender(name)
       name = name.to_s.downcase
       index = name.index(",")

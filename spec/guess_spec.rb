@@ -37,4 +37,41 @@ describe Guess do
     it { subject[:confidence].should be_within(0.1).of(0.99) }
   end
 
+  context "male gendered he" do
+    subject { Guess.gendered_form_of(:they, "Don Draper") }
+    it { subject.should == "he" }
+  end
+  context "male gendered his" do
+    subject { Guess.gendered_form_of(:their, "Don Draper") }
+    it { subject.should == "his" }
+  end
+  context "male gendered his (alt)" do
+    subject { Guess.gendered_form_of(:theirs, "Don Draper") }
+    it { subject.should == "his" }
+  end
+  context "female gendered she" do
+    subject { Guess.gendered_form_of(:they, "Betty Draper") }
+    it { subject.should == "she" }
+  end
+  context "female gendered her" do
+    subject { Guess.gendered_form_of(:their, "Betty Draper") }
+    it { subject.should == "her" }
+  end
+  context "female gendered hers" do
+    subject { Guess.gendered_form_of(:theirs, "Betty Draper") }
+    it { subject.should == "hers" }
+  end
+  context "unknown gendered they" do
+    subject { Guess.gendered_form_of(:they, "Mad Men") }
+    it { subject.should == "they" }
+  end
+  context "unknown gendered their" do
+    subject { Guess.gendered_form_of(:their, "Mad Men") }
+    it { subject.should == "their" }
+  end
+  context "unknown gendered theirs" do
+    subject { Guess.gendered_form_of(:theirs, "Mad Men") }
+    it { subject.should == "theirs" }
+  end
+
 end

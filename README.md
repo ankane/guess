@@ -13,6 +13,17 @@ Guess.gender("Mad Men")
 
 Statistical data obtained from the [US Census Bureau](http://www.census.gov/genealogy/names/names_files.html), so it works best with American names.
 
+You can call `Guess.gendered_form_of` to get a "gendered" form of some common words.
+
+```ruby
+Guess.gendered_form_of(:they, "Don Draper")
+# => "he"
+Guess.gendered_form_of(:their, "Betty Draper")
+# => "her"
+Guess.gendered_form_of(:theirs, "Mad Men")
+# => "theirs"
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
