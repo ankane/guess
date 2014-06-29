@@ -1,6 +1,6 @@
 # Guess
 
-*Statistically* determine a person's gender based on his / her name.
+*Statistically* determine a person’s gender based on his or her name.
 
 ```ruby
 Guess.gender("Don Draper")
@@ -15,22 +15,17 @@ Statistical data obtained from the [US Census Bureau](http://www.census.gov/gene
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application’s Gemfile:
 
-    gem "guess"
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install guess
+```ruby
+gem 'guess'
+```
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Everyone is encouraged to help improve this project. Here are a few ways you can help:
+
+- [Report bugs](https://github.com/ankane/guess/issues)
+- Fix bugs and [submit pull requests](https://github.com/ankane/guess/pulls)
+- Write, clarify, or fix documentation
+- Suggest or add new features

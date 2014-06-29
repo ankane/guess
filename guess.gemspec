@@ -4,8 +4,8 @@ require File.expand_path('../lib/guess/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Andrew Kane"]
   gem.email         = ["andrew@getformidable.com"]
-  gem.description   = %q{*Statistically* determine a person's gender based on his / her name.}
-  gem.summary       = %q{*Statistically* determine a person's gender based on his / her name.}
+  gem.description   = %q{*Statistically* determine a person's gender based on his or her name.}
+  gem.summary       = %q{*Statistically* determine a person's gender based on his or her name.}
   gem.homepage      = "https://github.com/ankane/guess"
 
   gem.files         = `git ls-files`.split($\)
