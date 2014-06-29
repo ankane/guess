@@ -1,6 +1,6 @@
 # Guess
 
-*Statistically* determine a person’s gender based on his or her name.
+*Statistical* gender detection for Ruby
 
 ```ruby
 Guess.gender("Don Draper")
