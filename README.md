@@ -2,20 +2,31 @@
 
 *Statistical* gender detection for Ruby
 
+Works with first names
+
 ```ruby
 Guess.gender("Don")
-# => {:gender => "male", :confidence => 0.9965635738831615}
-Guess.gender("Betty")
-# => {:gender => "female", :confidence => 0.9992498124531133}
-Guess.gender("Manhattan")
-# => {:gender => "unknown", :confidence => nil}
+# {gender: "male", confidence: 0.9965635738831615}
 ```
 
-Full names are also supported
+And full names
 
 ```ruby
-Guess.gender("Don Draper")
+Guess.gender("Betty Draper")
+# {gender: "female", confidence: 0.9992498124531133}
+```
+
+or
+
+```ruby
 Guess.gender("Draper, Betty")
+```
+
+Occasionally, it just doesn’t know
+
+```ruby
+Guess.gender("Manhattan")
+# {gender: "unknown", confidence: nil}
 ```
 
 Data obtained from the [US Census Bureau](http://www.census.gov/genealogy/names/names_files.html), so it works best with American names.
