@@ -29,7 +29,7 @@ Guess.gender("Manhattan")
 # {gender: "unknown", confidence: nil}
 ```
 
-Data obtained from the [US Census Bureau](http://www.census.gov/genealogy/names/names_files.html), so it works best with American names.
+Data obtained from the [US Census Bureau](http://www.census.gov/genealogy/www/data/1990surnames/names_files.html), so it works best with American names.
 
 ## Installation
 
