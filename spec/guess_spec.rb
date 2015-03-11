@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe Guess do
-
   context "male name" do
     subject { Guess.gender("Don Draper") }
 
@@ -36,5 +35,4 @@ describe Guess do
     it { expect(subject[:gender]).to eq("male") }
     it { expect(subject[:confidence]).to be_within(0.1).of(0.99) }
   end
-
 end

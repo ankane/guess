@@ -6,5 +6,5 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "guess"
 
-RSpec.configure do |config|
+RSpec.configure do
 end
