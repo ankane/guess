@@ -8,8 +8,8 @@ module Guess
       first_name = index ? name[(index + 1)..-1] : name
       first_name = first_name.split.first
 
-      freq_male = FREQ_MALE[first_name]
-      freq_female = FREQ_FEMALE[first_name]
+      freq_male = male_frequencies[first_name]
+      freq_female = female_frequencies[first_name]
       p_male = freq_male / (freq_male + freq_female)
       gender, confidence =
       if freq_male > freq_female
@@ -34,8 +34,13 @@ module Guess
     def gem_root
       @gem_root ||= File.expand_path("../..", __FILE__)
     end
-  end
 
-  FREQ_MALE = parse_file("male")
-  FREQ_FEMALE = parse_file("female")
+    def male_frequencies
+      @male_frequencies ||= parse_file("male")
+    end
+
+    def female_frequencies
+      @female_frequencies ||= parse_file("female")
+    end
+  end
 end
