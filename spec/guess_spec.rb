@@ -35,4 +35,11 @@ describe Guess do
     it { expect(subject[:gender]).to eq("male") }
     it { expect(subject[:confidence]).to be_within(0.1).of(0.99) }
   end
+
+  context "explicit unknown" do
+    subject { Guess.gender("Jody Cash") }
+
+    it { expect(subject[:gender]).to eq("unknown") }
+    it { expect(subject[:confidence]).to be_nil }
+  end
 end
