@@ -1,4 +1,5 @@
 require "guess/version"
+require 'set'
 
 module Guess
   class << self
@@ -8,9 +9,14 @@ module Guess
       first_name = index ? name[(index + 1)..-1] : name
       first_name = first_name.split.first
 
+      if neutral_names.include?(first_name)
+        return {:gender => "unknown", :confidence => nil}
+      end
+
       freq_male = male_frequencies[first_name]
       freq_female = female_frequencies[first_name]
       p_male = freq_male / (freq_male + freq_female)
+
       gender, confidence =
       if freq_male > freq_female
         ["male", p_male]
@@ -24,7 +30,7 @@ module Guess
 
     def parse_file(name)
       dist = Hash.new(0.0005)
-      File.open("#{gem_root}/lib/guess/#{name}.txt", "r").each_line do |line|
+      File.open("#{file_path}/#{name}.txt", "r").each_line do |line|
         name, freq, _, _ = line.split
         dist[name.downcase] = freq.to_f
       end
@@ -41,6 +47,18 @@ module Guess
 
     def female_frequencies
       @female_frequencies ||= parse_file("female")
+    end
+
+    def neutral_names
+      @neutral_names ||= begin
+        names = []
+        File.open("#{file_path}/unknown.txt", "r").each_line {|line| names << line.split.first.downcase}
+        Set.new(names)
+      end
+    end
+
+    def file_path
+      "#{gem_root}/lib/guess"
     end
   end
 end
