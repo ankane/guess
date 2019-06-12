@@ -1,20 +1,21 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path("../lib/guess/version", __FILE__)
+require_relative "lib/guess/version"
 
-Gem::Specification.new do |gem|
-  gem.authors       = ["Andrew Kane"]
-  gem.email         = ["andrew@chartkick.com"]
-  gem.description   = "Statistical gender detection for Ruby"
-  gem.summary       = "Statistical gender detection for Ruby"
-  gem.homepage      = "https://github.com/ankane/guess"
+Gem::Specification.new do |spec|
+  spec.name          = "guess"
+  spec.version       = Guess::VERSION
+  spec.summary       = "Statistical gender detection for Ruby"
+  spec.homepage      = "https://github.com/ankane/guess"
+  spec.license       = "MIT"
 
-  gem.files         = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
-  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "guess"
-  gem.require_paths = ["lib"]
-  gem.version       = Guess::VERSION
+  spec.author        = "Andrew Kane"
+  spec.email         = "andrew@chartkick.com"
 
-  gem.add_development_dependency "rake"
-  gem.add_development_dependency "rspec", ">= 3"
+  spec.files         = Dir["*.{md,txt}", "{lib}/**/*"]
+  spec.require_path  = "lib"
+
+  spec.required_ruby_version = ">= 2.4"
+
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec", ">= 3"
 end
